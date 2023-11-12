@@ -32,7 +32,7 @@ spec:
       containers:
       - name: django-example
         image: django-example
-        imagePullPolicy: Never
+        imagePullPolicy: IfNotPresent
         ports:
           - containerPort: 8000
             protocol: TCP
@@ -49,7 +49,7 @@ spec:
         image: nginx
         imagePullPolicy: Always
         ports:
-          - containerPort: 80
+          - containerPort: 8080
             protocol: TCP
         volumeMounts:
           - name: nginx-conf
