@@ -7,3 +7,4 @@ data:
   DB_NAME: 'polls'
   DB_HOST: '10.109.239.185'
   DB_PORT: '5432'
+  DB_ENGINE: 'django.db.backends.postgresql'
