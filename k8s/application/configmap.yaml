@@ -1,9 +1,9 @@
 apiVersion: v1
-kind: Configap
+kind: ConfigMap
 metadata:
   name: django-config
 data:
   DEBUG: 'True'
   DB_NAME: 'polls'
-  DB_HOST: 'db'
+  DB_HOST: '10.109.239.185'
   DB_PORT: '5432'
