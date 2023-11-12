@@ -20,32 +20,32 @@ spec:
         imagePullPolicy: "IfNotPresent"
         ports:
         - containerPort: 5432
-      env:
-        - name: POSTGRES_DB
-          valueFrom:
-            secretKeyRef:
-              name: postgres-secrets
-              key: database
-        - name: POSTGRES_USER
-          valueFrom:
-            secretKeyRef:
-              name: postgres-secrets
-              key: username
-        - name: POSTGRES_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: postgres-secrets
-              key: password
-      volumeMounts:
+        env:
+          - name: POSTGRES_DB
+            valueFrom:
+              secretKeyRef:
+                name: postgres-secrets
+                key: database
+          - name: POSTGRES_USER
+            valueFrom:
+              secretKeyRef:
+                name: postgres-secrets
+                key: username
+          - name: POSTGRES_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: postgres-secrets
+                key: password
+        volumeMounts:
+          - name: postgresdb
+            mountPath: /var/lib/postgresql/data
+          - name: postgres-secrets
+            mountPath: "/etc/postgres-secrets"
+            readOnly: true
+      volumes:
         - name: postgresdb
-          mountPath: /var/lib/posgresql/data
+          persistentVolumeClaim:
+            claimName: postgres-pvc
         - name: postgres-secrets
-          mountPath: "/etc/postgres-secrets"
-          readOnly: true
-    volumes:
-      - name: postgresdb
-        persistentVolumeClaim:
-          claimName: postgres-pvc
-      - name: postgres-secrets
-        secret:
-          secretName: postgres-secrets
+          secret:
+            secretName: postgres-secrets
