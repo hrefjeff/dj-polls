@@ -25,8 +25,10 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 
 DEBUG = bool(os.environ.get("DEBUG", default=0))
 
-ALLOWED_HOSTS = ["*"]
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'http')
 
+ALLOWED_HOSTS = ["*"]
+CSRF_TRUSTED_ORIGINS = ["http://localhost:31000"]
 
 # Application definition
 
@@ -121,7 +123,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = BASE_DIR / 'static/'
+STATIC_ROOT = '/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

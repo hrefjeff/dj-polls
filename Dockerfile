@@ -1,7 +1,7 @@
 # pull official base image
 FROM python:3.11.4-slim-buster
 
-RUN apt-get update && apt-get install -y
+RUN apt-get update && apt-get install vim -y
 
 # copy project
 COPY . /usr/src
