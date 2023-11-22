@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Values.application.configmap.name }}
+data:
+  DEBUG: "{{ .Values.application.configmap.debug }}"
+  DB_NAME: {{ .Values.application.configmap.dbname }}
+  DB_HOST: {{ .Values.application.configmap.dbhost }}
+  DB_PORT: "{{ .Values.application.configmap.dbport }}"
+  DB_ENGINE: {{ .Values.application.configmap.dbengine }}
