@@ -17,8 +17,8 @@ spec:
     spec:
       initContainers:
         - name: collectstatic
-          image: django-example
-          imagePullPolicy: Never
+          image: jeffwayne256/simpledj:v2
+          imagePullPolicy: IfNotPresent
           command: ["python", "manage.py", "collectstatic", "--noinput"]
           envFrom:
             - secretRef:
@@ -31,8 +31,8 @@ spec:
               readOnly: false
       containers:
       - name: django-example
-        image: django-example
-        imagePullPolicy: IfNotPresent
+        image: jeffwayne256/simpledj:v2
+        imagePullPolicy: Never
         ports:
           - containerPort: 8000
             protocol: TCP
