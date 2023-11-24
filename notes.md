@@ -1,3 +1,10 @@
+# 2023-11-24
+
+I tried spinning this environment up on another machine using this chart. Issues that happened:
+
+* the `nginx.conf` configmap was not deployed so I had to manually do `k create cm nginx-conf --from-file=nginx.conf`
+* postgres did not have a 'polls' database created. I believe the initial deployment did not spin up correctly because it should have been there with the mounted secrets
+
 # 2023-11-23
 
 I was able to create a django app from scratch and create k8s resources to deploy it on.
