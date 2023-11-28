@@ -1,3 +1,17 @@
+# 2023-11-27
+
+I was able to get it up and running. Template was wrong. But had to run commands
+
+## postgresql deployment container
+
+* `k exec -it <pod name> -c <multi container name> -- /bin/bash`
+* psql -U jeffwayne256
+* create database polls;
+
+Command for getting logs in real time from a container
+
+`k logs app-5fbc5bb954-tpjfx -c django-example -f --tail 10`
+
 # 2023-11-24
 
 I tried spinning this environment up on another machine using this chart. Issues that happened:
